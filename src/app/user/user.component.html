@@ -1,6 +1,9 @@
 <div>
   <button>
-    <img src="" alt="">
+    <!-- Learn: double curly syntax can be used anywhere-->
+    <!-- <img src="{{ seletecUser.avatar}}" alt=""> -->
+    <!-- Learn: This is property binding -->
+    <img [src]="'/assets/users/' + seletecUser.avatar" [alt]="seletecUser.name">
     <!-- Learn: make sure seletecUser is a properties in component class propeties -->
     <span>{{ seletecUser.name}}</span>
   </button>
