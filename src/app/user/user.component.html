@@ -1,9 +1,13 @@
 <div>
-  <button>
+  <!-- learn: add event listener, CTRL + SPACE for list -->
+  <!-- learn: this is event binding -->
+  <button (click)="onSelecterUser()">
     <!-- Learn: double curly syntax can be used anywhere-->
     <!-- <img src="{{ seletecUser.avatar}}" alt=""> -->
     <!-- Learn: This is property binding -->
-    <img [src]="'/assets/users/' + seletecUser.avatar" [alt]="seletecUser.name">
+    <!-- <img [src]="'/assets/users/' + seletecUser.avatar" [alt]="seletecUser.name"> -->
+    <!-- Learn: to use imagePath, we have to declare getter -->
+    <img [src]="imagePath" [alt]="seletecUser.name">
     <!-- Learn: make sure seletecUser is a properties in component class propeties -->
     <span>{{ seletecUser.name}}</span>
   </button>

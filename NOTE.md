@@ -20,3 +20,11 @@ Since "Property Binding" wants to target properties. use `Attribute Binding` - b
   [attr.aria-valuenow]="currentVal" 
   [attr.aria-valuemax]="maxVal">...</div>
 ```
+
+Angular's change detection mechanism is based on library is zone.js
+
+There are 2 approaches for updating state
+option 1: relying on zonejs
+option 2: using signals to notify Angular about value changes and required UI updates
+
+signals are trackable data containers - signal is an object that stores a value. Angular manages subscriptions to the signal to get notified about value changes - able to update the UI that needs updating

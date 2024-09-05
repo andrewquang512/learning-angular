@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
 
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length)
@@ -13,4 +13,15 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length)
 export class UserComponent {
   // learn: public or default will make this property available in html, private will not
   seletecUser = DUMMY_USERS[randomIndex]
+
+  // learn: getter
+  get imagePath(){
+    return 'assets/users/' + this.seletecUser.avatar
+  }
+
+  onSelecterUser(){
+    // Learn: managing state
+    const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length)
+    this.seletecUser = DUMMY_USERS[randomIndex]
+  }
 }
