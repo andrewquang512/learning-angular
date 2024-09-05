@@ -7,8 +7,8 @@
     <!-- Learn: This is property binding -->
     <!-- <img [src]="'/assets/users/' + seletecUser.avatar" [alt]="seletecUser.name"> -->
     <!-- Learn: to use imagePath, we have to declare getter -->
-    <img [src]="imagePath" [alt]="seletecUser.name">
+    <img [src]="imagePath()" [alt]="seletecUser().name">
     <!-- Learn: make sure seletecUser is a properties in component class propeties -->
-    <span>{{ seletecUser.name}}</span>
+    <span>{{ seletecUser().name}}</span>
   </button>
 </div>

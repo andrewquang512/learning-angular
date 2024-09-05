@@ -28,3 +28,10 @@ option 1: relying on zonejs
 option 2: using signals to notify Angular about value changes and required UI updates
 
 signals are trackable data containers - signal is an object that stores a value. Angular manages subscriptions to the signal to get notified about value changes - able to update the UI that needs updating
+
+Computed signals are both lazily evaluated and memoized
+`imagePath`'s derivation function does not run to calculate its value until the first time you read `imagePath`. The calculated value is then cached, and if you read `imagePath` again, it will return the cached value without recalculating.
+
+If you then change `seletecUser`, Angular knows that `imagePath`'s cached value is no longer valid, and the next time you read `imagePath` its new value will be calculated.
+
+As a result, you can safely perform computationally expensive derivations in computed signals, such as filtering arrays.

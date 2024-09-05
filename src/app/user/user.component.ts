@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
 
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length)
@@ -12,16 +12,20 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length)
 })
 export class UserComponent {
   // learn: public or default will make this property available in html, private will not
-  seletecUser = DUMMY_USERS[randomIndex]
+  seletecUser = signal(DUMMY_USERS[randomIndex])
+  /**
+   * learn: The imagedPath computed signal depends on the seletecUser signal. Whenever seletecUser updates, Angular knows that imagedPath needs to update as well.
+   */
+  imagePath = computed(()=> 'assets/users/'+ this.seletecUser().avatar)
 
   // learn: getter
-  get imagePath(){
-    return 'assets/users/' + this.seletecUser.avatar
-  }
+  // get imagePath(){
+  //   return 'assets/users/' + this.seletecUser.avatar
+  // }
 
   onSelecterUser(){
     // Learn: managing state
     const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length)
-    this.seletecUser = DUMMY_USERS[randomIndex]
+    this.seletecUser.set(DUMMY_USERS[randomIndex])
   }
 }
